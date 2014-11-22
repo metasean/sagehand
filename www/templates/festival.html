@@ -8,31 +8,26 @@
           <!-- CARD HEADER -->
           <div class="item item-header">
             <p>{{act.size}}</p>
+            <button class="button button-icon" ng-click="editAct()">
+              <i class="icon ion-compose"></i>
+            </button>
             <h2>{{act.performer}}</h2>
           </div>
 
           <!-- CARD DETAILS -->
           <div class="item item-body">
-            <ul class="list">
-              <li class="item item-checkbox">
-                <lable class="checkbox">
-                  <input type="checkbox">
-                </lable>
-                call: {{act.call}}
-              </li>
-              <li class="item item-checkbox">
-                <lable class="checkbox">
-                  <input type="checkbox">
-                </lable>
-                setup: {{act.setUp[0]}} - {{act.setUp[1]}}
-              </li>
-              <li class="item item-checkbox">
-                <lable class="checkbox">
-                  <input type="checkbox">
-                </lable>
-                set: {{act.set[0]}} - {{act.set[1]}}
-              </li>
-            </ul>
+            <ion-checkbox ng-model="act.call[0]"
+                          ng-checked="act.call[0]">
+              call: {{act.call[1]}}
+            </ion-checkbox>
+            <ion-checkbox ng-model="act.setUp[0]"
+                          ng-checked="act.setUp[0]">
+              setup: {{act.setUp[1]}} - {{act.setUp[2]}}
+            </ion-checkbox>
+            <ion-checkbox ng-model="act.set[0]"
+                          ng-checked="act.set[0]">
+              set: {{act.set[1]}} - {{act.set[2]}}
+            </ion-checkbox>
             <p>{{act.needs}}</p>
             <i class="icon ion-grid"></i>
           </div>
@@ -40,6 +35,33 @@
 
         </div>
     </ion-list>
+
+    <script id="edit-act.html" type="text/ng-template">
+      <div class="modal">
+
+        <ion-header-bar class="bar-secondary">
+          <h1 class="title">Edit Act</h1>
+          <button class="button button-clear button-positive" ng-click="closeEditAct()">Cancel</button>
+        </ion-header-bar>
+
+        <!-- Modal content area -->
+        <ion-content>
+
+          <form ng-submit="editAct(act)">
+            <div class="list">
+              <label class="item item-input">
+                <input type="text" placeholder="Performer Name" ng-model="act.performer">
+              </label>
+            </div>
+            <div class="padding">
+              <button type="submit" class="button button-block button-balanced">Save Edits</button>
+            </div>
+          </form>
+
+        </ion-content>
+
+      </div>
+    </script>
 
   </ion-content>
 </ion-view>

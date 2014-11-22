@@ -65,7 +65,19 @@ angular.module('sageHand', ['ionic', 'starter.controllers'])
           controller: 'FestivalCtrl'
         }
       }
+    })
+
+    .state('app.act', {
+      url: "/festivals/:festivalId/acts/:actId/edit",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/edit-act.html",
+          controller: 'FestivalCtrl'
+        }
+      }
     });
+
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/festivals');
 });
