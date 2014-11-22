@@ -1,67 +1,89 @@
-<ion-view title="Festival">
+<ion-view title="{{title}}">
   <ion-content class="has-header">
-    <h1>Festival</h1>
 
 
     <ion-list ng-repeat="act in acts" href="#/app/festivals/{{festival.id}}">
-        <div class="list card">
-          <!-- CARD HEADER -->
-          <div class="item item-header">
-            <p>{{act.size}}</p>
-            <button class="button button-icon" ng-click="editAct()">
-              <i class="icon ion-compose"></i>
-            </button>
-            <h2>{{act.performer}}</h2>
-          </div>
+      <div class="list card">
 
-          <!-- CARD DETAILS -->
-          <div class="item item-body">
-            <ion-checkbox ng-model="act.call[0]"
-                          ng-checked="act.call[0]">
-              call: {{act.call[1]}}
-            </ion-checkbox>
-            <ion-checkbox ng-model="act.setUp[0]"
-                          ng-checked="act.setUp[0]">
-              setup: {{act.setUp[1]}} - {{act.setUp[2]}}
-            </ion-checkbox>
-            <ion-checkbox ng-model="act.set[0]"
-                          ng-checked="act.set[0]">
-              set: {{act.set[1]}} - {{act.set[2]}}
-            </ion-checkbox>
-            <p>{{act.needs}}</p>
-            <i class="icon ion-grid"></i>
+        <!-- CARD HEADER -->
+        <div class="item item-header">
+          <p>{{act.size}}</p>
+          <button class="button button-icon" ng-click="editAct(act)">
+            <i class="icon ion-compose"></i>
+          </button>
+          <h2>{{act.performer}}</h2>
+        </div>
+
+        <!-- CARD DETAILS -->
+        <div class="item item-body">
+          <ion-checkbox ng-model="act.call[0]"
+                        ng-checked="act.call[0]">
+            <span class="timeCheckbox">call:</span> {{act.call[1]}}
+          </ion-checkbox>
+          <ion-checkbox ng-model="act.setUp[0]"
+                        ng-checked="act.setUp[0]">
+            <span class="timeCheckbox">setup:</span> {{act.setUp[1]}} - {{act.setUp[2]}}
+          </ion-checkbox>
+          <ion-checkbox ng-model="act.set[0]"
+                        ng-checked="act.set[0]">
+            <span class="timeCheckbox">set:</span> {{act.set[1]}} - {{act.set[2]}}
+          </ion-checkbox>
+          <p>{{act.needs}}</p>
+          <i class="icon ion-grid"></i>
+        </div>
+
+        <!-- MODAL -->
+        <script id="edit-act.html" type="text/ng-template">
+          <div class="modal">
+
+            <ion-header-bar class="bar-secondary">
+              <h1 class="title">Edit Act</h1>
+              <button class="button button-clear button-balanced" ng-click="closeEditAct()">Cancel</button>
+            </ion-header-bar>
+
+            <!-- Modal content area -->
+            <ion-content>
+              <div class="list card">
+                <label class="item item-input">
+                  <span class="input-label">Size</span>
+                  <input type="text" ng-model="act.size">
+                </label>
+                <label class="item item-input">
+                  <input type="text" placeholder="act.performer" ng-model="act.performer">
+                </label>
+                <label class="item item-input">
+                  <span class="input-label">Call time</span>
+                  <input type="text" ng-model="act.call[1]">
+                </label>
+                <label class="item item-input">
+                  <span class="input-label">Setup times</span>
+                  <input type="text" ng-model="act.setUp[1]"> -
+                  <input type="text" ng-model="act.setUp[2]">
+                </label>
+                <label class="item item-input">
+                  <span class="input-label">Set times</span>
+                  <input type="text" ng-model="act.set[1]"> -
+                  <input type="text" ng-model="act.set[2]">
+                </label>
+                <label class="item item-input">
+                  <span class="input-label">Needs</span>
+                  <input type="text" ng-model="act.needs">
+                </label>
+              </div>
+              <div class="padding">
+                <button type="submit"
+                        class="button button-block button-balanced"
+                        ng-click="modifyAct(act)">
+                        Save Edits</button>
+              </div>
+            </ion-content>
+
           </div>
+        </script>
 
 
         </div>
     </ion-list>
-
-    <script id="edit-act.html" type="text/ng-template">
-      <div class="modal">
-
-        <ion-header-bar class="bar-secondary">
-          <h1 class="title">Edit Act</h1>
-          <button class="button button-clear button-positive" ng-click="closeEditAct()">Cancel</button>
-        </ion-header-bar>
-
-        <!-- Modal content area -->
-        <ion-content>
-
-          <form ng-submit="editAct(act)">
-            <div class="list">
-              <label class="item item-input">
-                <input type="text" placeholder="Performer Name" ng-model="act.performer">
-              </label>
-            </div>
-            <div class="padding">
-              <button type="submit" class="button button-block button-balanced">Save Edits</button>
-            </div>
-          </form>
-
-        </ion-content>
-
-      </div>
-    </script>
 
   </ion-content>
 </ion-view>

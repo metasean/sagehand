@@ -45,6 +45,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('FestivalCtrl', function($scope, $stateParams, $ionicModal) {
+  $scope.title = "WRRMF14";
+
   $scope.acts = [
     {
       "id": 1,
@@ -170,18 +172,18 @@ angular.module('starter.controllers', [])
   ];
 
   // create and load the  edit act in modal format
-  $ionicModal.fromTemplateUrl('edit-act.html', function(modal) {
-    $scope.actModal = modal;
-  }, {
+  $ionicModal.fromTemplateUrl('edit-act.html', {
     scope: $scope,
     animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.actModal = modal;
   });
 
   // save act edits
   $scope.modifyAct = function(act) {
     var actId = _.findIndex($scope.acts, {'id': act.id});
-    console.log($scope.acts[actId]);
     //$scope.acts.splice();
+    $scope.actModal.hide();
   };
 
   // show the edit act modal
@@ -193,5 +195,10 @@ angular.module('starter.controllers', [])
   $scope.closeEditAct = function() {
     $scope.actModal.hide();
   };
+
+  // take out the garbage
+  $scope.$on('$destroy', function() {
+    $scope.actModal.remove();
+  });
 
 })
