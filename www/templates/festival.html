@@ -1,5 +1,45 @@
 <ion-view title="Festival">
   <ion-content class="has-header">
     <h1>Festival</h1>
+
+
+    <ion-list ng-repeat="act in acts" href="#/app/festivals/{{festival.id}}">
+        <div class="list card">
+          <!-- CARD HEADER -->
+          <div class="item item-header">
+            <p>{{act.size}}</p>
+            <h2>{{act.performer}}</h2>
+          </div>
+
+          <!-- CARD DETAILS -->
+          <div class="item item-body">
+            <ul class="list">
+              <li class="item item-checkbox">
+                <lable class="checkbox">
+                  <input type="checkbox">
+                </lable>
+                call: {{act.call}}
+              </li>
+              <li class="item item-checkbox">
+                <lable class="checkbox">
+                  <input type="checkbox">
+                </lable>
+                setup: {{act.setUp[0]}} - {{act.setUp[1]}}
+              </li>
+              <li class="item item-checkbox">
+                <lable class="checkbox">
+                  <input type="checkbox">
+                </lable>
+                set: {{act.set[0]}} - {{act.set[1]}}
+              </li>
+            </ul>
+            <p>{{act.needs}}</p>
+            <i class="icon ion-grid"></i>
+          </div>
+
+
+        </div>
+    </ion-list>
+
   </ion-content>
 </ion-view>
