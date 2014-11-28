@@ -4,12 +4,13 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('sageHand', ['ionic', 'starter.controllers'])
+angular.module('sageHand', ['ionic', 'firebase', 'ui.router', 'ngStorage', 'sageHand.controllers'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, $firebase, $window) { //, $firebaseAuth, $ior) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+    //debugger;
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
@@ -17,11 +18,64 @@ angular.module('sageHand', ['ionic', 'starter.controllers'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+/*    $rootScope.userEmail = null;
+    $rootScope.baseUrl = 'https://stage-hand.firebaseio.com/';
+    var authRef = new Firebase($rootScope.baseUrl);
+    $rootScope.auth = $firebaseAuth(authRef);
+    */
+
+    $rootScope.show = function(txt) {
+      $rootScope.loading = $ionicLoading.show({
+        content: txt ? txt : 'Loading..',
+        animation: 'fade-in',
+        showBackdrop: false,
+        maxWidth: 200,
+        showDelay: 0
+      });
+    };
+
+    $rootScope.hide = function() {
+      $ionicLoading.hide();
+    };
+
+    $rootScope.notify = function(txt) {
+      $rootScope.show(txt);
+      $window.setTimeout(function() {
+        $rootScope.hide();
+      }, 1999);
+    };
+
+    /*
+    $rootScope.checkSession = function() {
+      var auth = new FirebaseSimpleLogin(authRef, function (error, user) {
+        if (error) {
+          // no action yet.. redirect to default route
+          $rootScope.userEmail = null;
+          $window.location.href = '#/login';
+        } else if (user) {
+          // user authenticated with Firebase
+          $rootScope.userEmail = user.email;
+          $window.location.href = ('#/festivals');
+        } else {
+          // user is logged out
+          $rootScope.userEmail = null;
+          $window.location.href = '#/login';
+        }
+      });
+    }
+    */
   });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
+
   $stateProvider
+    .state('auth', {
+      url: "/login",
+      abstract: true,
+      templateUrl: "templates/login.html"
+    })
 
     .state('app', {
       url: "/app",
@@ -52,7 +106,10 @@ angular.module('sageHand', ['ionic', 'starter.controllers'])
       views: {
         'menuContent' :{
           templateUrl: "templates/festivals.html",
-          controller: 'FestivalsCtrl'
+          controller: 'FestivalsCtrl' /*,
+          resolve: {
+            testRef: "test"
+          } */
         }
       }
     })
@@ -62,7 +119,15 @@ angular.module('sageHand', ['ionic', 'starter.controllers'])
       views: {
         'menuContent' :{
           templateUrl: "templates/festival.html",
-          controller: 'FestivalCtrl'
+          controller: 'FestivalCtrl' /*,
+          resolve: {
+            testRef: "test",
+            actsRef: function (FirebaseService, $stateParams) {
+              console.log('.config.state(app.festival');
+              console.log(FirebaseService.getActs($stateParams.key));
+              return FirebaseService.getActs($stateParams.key);
+            }
+          } */
         }
       }
     })

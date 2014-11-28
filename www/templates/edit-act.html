@@ -1,0 +1,24 @@
+<div class="modal">
+
+    <ion-header-bar class="bar-secondary">
+        <h1 class="title">Edit Act</h1>
+        <button class="button button-clear button-positive" ng-click="closeEditAct()">Cancel</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content>
+
+        <form ng-submit="editAct(act)">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" placeholder="Performer Name" ng-model="act.performer">
+                </label>
+            </div>
+            <div class="padding">
+                <button type="submit" class="button button-block button-balanced">Save Edits</button>
+            </div>
+        </form>
+
+    </ion-content>
+
+</div>

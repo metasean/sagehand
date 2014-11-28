@@ -1,6 +1,6 @@
-angular.module('starter.controllers', [])
+angular.module('sageHand.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $rootScope, $firebaseAuth, $window, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -33,19 +33,29 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('FestivalsCtrl', function($scope) {
+.controller('FestivalsCtrl', function($scope ) {//, testRef, $rootScope, $firebaseAuth, $window) {
+
+    //console.log(testRef);
+
+
   $scope.festivals = [
-    { title: 'WRRMF14', id: 1 },
+    { title: 'WRRMF13', id: 1 },
+    { title: 'WRRMF14', id: 'WRRMF14' },
     { title: 'UMF14', id: 2 },
     { title: 'DVMF14', id: 3 },
     { title: 'Moab14', id: 4 },
     { title: 'UFOMT14', id: 5 },
     { title: 'Groovefest14', id: 6 }
   ];
+
 })
 
-.controller('FestivalCtrl', function($scope, $stateParams, $ionicModal) {
+.controller('FestivalCtrl', function($scope, $rootScope, $stateParams, $ionicModal){ // , actsRef, $localStorage, $firebaseAuth, $window) {
   $scope.title = "WRRMF14";
+
+  //$scope.$storage = $localStorage;actsRef.$asArray()
+
+  //$scope.acts = actsRef.$asArray();
 
   $scope.acts = [
     {
@@ -170,6 +180,10 @@ angular.module('starter.controllers', [])
       "set": [false, "9:00pm", "10:30pm"]
     }
   ];
+
+
+
+
 
   // create and load the  edit act in modal format
   $ionicModal.fromTemplateUrl('edit-act.html', {
