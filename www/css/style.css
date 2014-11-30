@@ -1,0 +1,45 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-size: 1em; }
+
+h1, h2, h3 {
+  width: 100%;
+  margin: auto; }
+
+table, table tr, table td {
+  padding: 0;
+  border: 0;
+  border-spacing: 0; }
+
+.timeCheckbox {
+  min-width: 4em;
+  float: left; }
+
+.item-header-left {
+  float: left; }
+
+.item-header-left p {
+  padding-bottom: 0.75em;
+  margin-bottom: 0;
+  border-spacing: 0; }
+
+.item-header-left h2 {
+  padding-top: 0; }
+
+.act-edit-button {
+  float: right; }
+
+.act-needs .icon {
+  float: left;
+  width: 60px;
+  padding: 16px;
+  text-align: center; }
+
+.act-needs .content {
+  float: left;
+  width: calc(100% - 80px);
+  padding: 16px 16px 16px 0; }
+
+/*# sourceMappingURL=style.css.map */
