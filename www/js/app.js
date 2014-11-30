@@ -101,15 +101,18 @@ angular.module('sageHand', ['ionic', 'firebase', 'ui.router', 'ngStorage', 'sage
         }
       }
     })
+
     .state('app.festivals', {
       url: "/festivals",
       views: {
-        'menuContent' :{
+        'menuContent': {
           templateUrl: "templates/festivals.html",
-          controller: 'FestivalsCtrl' /*,
-          resolve: {
-            testRef: "test"
-          } */
+          controller: 'FestivalsCtrl'
+        }
+      },
+      resolve: {
+        testRef: function() {
+          return "app.festivals state's testRef"
         }
       }
     })
@@ -117,17 +120,14 @@ angular.module('sageHand', ['ionic', 'firebase', 'ui.router', 'ngStorage', 'sage
     .state('app.festival', {
       url: "/festivals/:festivalId",
       views: {
-        'menuContent' :{
+        'menuContent': {
           templateUrl: "templates/festival.html",
-          controller: 'FestivalCtrl' /*,
-          resolve: {
-            testRef: "test",
-            actsRef: function (FirebaseService, $stateParams) {
-              console.log('.config.state(app.festival');
-              console.log(FirebaseService.getActs($stateParams.key));
-              return FirebaseService.getActs($stateParams.key);
-            }
-          } */
+          controller: 'FestivalCtrl'
+        }
+      },
+      resolve: {
+        actsRef: function (FirebaseService, $stateParams) {
+          return FirebaseService.getActs($stateParams.festivalId);
         }
       }
     })

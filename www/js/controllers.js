@@ -33,10 +33,7 @@ angular.module('sageHand.controllers', [])
   };
 })
 
-.controller('FestivalsCtrl', function($scope ) {//, testRef, $rootScope, $firebaseAuth, $window) {
-
-    //console.log(testRef);
-
+.controller('FestivalsCtrl', function($scope) {// , $rootScope, $firebaseAuth, $window) {
 
   $scope.festivals = [
     { title: 'WRRMF13', id: 1 },
@@ -50,14 +47,16 @@ angular.module('sageHand.controllers', [])
 
 })
 
-.controller('FestivalCtrl', function($scope, $rootScope, $stateParams, $ionicModal){ // , actsRef, $localStorage, $firebaseAuth, $window) {
+.controller('FestivalCtrl', function($scope, $rootScope, $stateParams, $ionicModal, actsRef){ //, $localStorage , $firebaseAuth, $window) {
+
   $scope.title = "WRRMF14";
 
-  //$scope.$storage = $localStorage;actsRef.$asArray()
+  //$scope.$storage = $localStorage;
 
-  //$scope.acts = actsRef.$asArray();
+  $scope.acts = actsRef.$asArray();
+  console.log($scope.acts);
 
-  $scope.acts = [
+  /*$scope.acts = [
     {
       "id": 1,
       "size": "duo",
@@ -179,7 +178,7 @@ angular.module('sageHand.controllers', [])
       "setUp": [false, "8:50pm", "9:00pm"],
       "set": [false, "9:00pm", "10:30pm"]
     }
-  ];
+  ];*/
 
 
 
