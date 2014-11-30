@@ -7,30 +7,37 @@
 
         <!-- CARD HEADER -->
         <div class="item item-header">
-          <p>{{act.size}}</p>
-          <button class="button button-icon" ng-click="editAct(act)">
-            <i class="icon ion-compose"></i>
-          </button>
-          <h2>{{act.performer}}</h2>
+          <div class="item-header-left">
+            <p>{{act.size}}</p>
+            <h2>{{act.performer}}</h2>
+          </div>
+          <div class="act-edit-button">
+            <button class="button button-icon right" ng-click="editAct(act)">
+              <i class="icon ion-compose"></i>
+          </div>
         </div>
 
         <!-- CARD DETAILS -->
-        <div class="item item-body">
-          <ion-checkbox ng-model="act.call[0]"
-                        ng-checked="act.call[0]">
-            <span class="timeCheckbox">call:</span> {{act.call[1]}}
+        <!--div class="item item-body"-->
+          <ion-checkbox ng-model="act.call.isDone"
+                        ng-checked="act.call.isDone">
+            <span class="timeCheckbox">call:</span> {{act.call.start}}
           </ion-checkbox>
-          <ion-checkbox ng-model="act.setUp[0]"
-                        ng-checked="act.setUp[0]">
-            <span class="timeCheckbox">setup:</span> {{act.setUp[1]}} - {{act.setUp[2]}}
+          <ion-checkbox ng-model="act.setUp.isDone"
+                        ng-checked="act.setUp.isDone">
+            <span class="timeCheckbox">setup:</span> {{act.setUp.start}} - {{act.setUp.end}}
           </ion-checkbox>
-          <ion-checkbox ng-model="act.set[0]"
-                        ng-checked="act.set[0]">
-            <span class="timeCheckbox">set:</span> {{act.set[1]}} - {{act.set[2]}}
+          <ion-checkbox ng-model="act.set.isDone"
+                        ng-checked="act.set.isDone">
+            <span class="timeCheckbox">set:</span> {{act.set.start}} - {{act.set.end}}
           </ion-checkbox>
-          <p>{{act.needs}}</p>
-          <i class="icon ion-grid"></i>
-        </div>
+          <div class="act-needs">
+            <i class="icon ion-grid"></i>
+            <div class="content">
+              <p>{{act.needs}}</p>
+            </div>
+          </div>
+        <!--/div-->
 
         <!-- MODAL -->
         <script id="edit-act.html" type="text/ng-template">
@@ -52,18 +59,24 @@
                   <input type="text" placeholder="act.performer" ng-model="act.performer">
                 </label>
                 <label class="item item-input">
+                  <ion-checkbox ng-model="act.call.isDone"
+                                ng-checked="act.call.isDone"></ion-checkbox>
                   <span class="input-label">Call time</span>
-                  <input type="text" ng-model="act.call[1]">
+                  <input type="text" ng-model="act.call[start]">
                 </label>
                 <label class="item item-input">
+                  <ion-checkbox ng-model="act.setUp.isDone"
+                                ng-checked="act.setUp.isDone"></ion-checkbox>
                   <span class="input-label">Setup times</span>
-                  <input type="text" ng-model="act.setUp[1]"> -
-                  <input type="text" ng-model="act.setUp[2]">
+                  <input type="text" ng-model="act.setUp[start]"> -
+                  <input type="text" ng-model="act.setUp.end">
                 </label>
                 <label class="item item-input">
+                  <ion-checkbox ng-model="act.set.isDone"
+                                ng-checked="act.set.isDone"></ion-checkbox>
                   <span class="input-label">Set times</span>
-                  <input type="text" ng-model="act.set[1]"> -
-                  <input type="text" ng-model="act.set[2]">
+                  <input type="text" ng-model="act.set.start"> -
+                  <input type="text" ng-model="act.set[end]">
                 </label>
                 <label class="item item-input">
                   <span class="input-label">Needs</span>
