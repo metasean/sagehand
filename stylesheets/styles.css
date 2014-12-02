@@ -232,11 +232,14 @@ h1 {
 h1.announcement {
   width: calc(100% - 0.5em);
   padding: 0.25em;
-  margin: 0.75em auto
+  margin: 0.75em auto;
   text-align: center;
   background-color: #F0B840;
   color: #fff;
-    text-shadow: #D39211 0px 0px 1px;
+    text-shadow: #D39211 0px 0px 1px,
+                 #D39211 0px 0px 1px,
+                 #D39211 0px 0px 1px,
+                 #D39211 0px 0px 1px;
     -webkit-font-smoothing: antialiased;
   border: 1px solid #D39211;
 }
