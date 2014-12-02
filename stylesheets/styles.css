@@ -1,21 +1,21 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 html {
-  background: #558f00;
-  background: #558f00 -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #558f00), color-stop(100%, #558f00)) fixed;
-  background: #558f00 -webkit-linear-gradient(#558f00, #558f00) fixed;
-  background: #558f00 -moz-linear-gradient(#558f00, #558f00) fixed;
-  background: #558f00 -o-linear-gradient(#558f00, #558f00) fixed;
-  background: #558f00 -ms-linear-gradient(#558f00, #558f00) fixed;
-  background: #558f00 linear-gradient(#558f00, #558f00) fixed;
+  background: #111111;
+  background: #111111 -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #111111), color-stop(100%, #111111)) fixed;
+  background: #111111 -webkit-linear-gradient(#111111, #111111) fixed;
+  background: #111111 -moz-linear-gradient(#111111, #111111) fixed;
+  background: #111111 -o-linear-gradient(#111111, #111111) fixed;
+  background: #111111 -ms-linear-gradient(#111111, #111111) fixed;
+  background: #111111 linear-gradient(#111111, #111111) fixed;
 }
 
 body {
   padding: 50px 0;
   margin: 0;
   font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #fff;
+  color: #555;
   font-weight: 300;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAYAAABNChwpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAAUdEVYdENyZWF0aW9uIFRpbWUAMy82LzEygrTcTAAAAFRJREFUSIljfPDggZRf5RIGGNjUHsNATz6jXmSL1Kb2GLiAX+USBnrymRgGGDCORgFmoNAXjEbBaBSMRsFoFIxGwWgUjEbBaBSMRsFoFIxGwWgUAABYNujumib3wAAAAABJRU5ErkJggg==') fixed;
+  //background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAYAAABNChwpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAAUdEVYdENyZWF0aW9uIFRpbWUAMy82LzEygrTcTAAAAFRJREFUSIljfPDggZRf5RIGGNjUHsNATz6jXmSL1Kb2GLiAX+USBnrymRgGGDCORgFmoNAXjEbBaBSMRsFoFIxGwWgUjEbBaBSMRsFoFIxGwWgUAABYNujumib3wAAAAABJRU5ErkJggg==') fixed;
 }
 
 .wrapper {
@@ -178,12 +178,12 @@ section {
   padding: 15px 20px;
   font-size: 15px;
   border-top: 1px solid #fff;
-  background: -webkit-gradient(linear, 50% 0%, 50% 700, color-stop(0%, #fafafa), color-stop(100%, #dedede));
-  background: -webkit-linear-gradient(#fafafa, #dedede 700px);
-  background: -moz-linear-gradient(#fafafa, #dedede 700px);
-  background: -o-linear-gradient(#fafafa, #dedede 700px);
-  background: -ms-linear-gradient(#fafafa, #dedede 700px);
-  background: linear-gradient(#fafafa, #dedede 700px);
+  background: -webkit-gradient(linear, 50% 0%, 50% 700, color-stop(0%, #ffffff), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(#ffffff, #ffffff 700px);
+  background: -moz-linear-gradient(#ffffff, #ffffff 700px);
+  background: -o-linear-gradient(#ffffff, #ffffff 700px);
+  background: -ms-linear-gradient(#ffffff, #ffffff 700px);
+  background: linear-gradient(#ffffff, #ffffff 700px);
   -webkit-border-radius: 0 0 8px 8px;
   -moz-border-radius: 0 0 8px 8px;
   -ms-border-radius: 0 0 8px 8px;
