@@ -227,8 +227,15 @@ h1, h2, h3 {
 
 h1 {
   font-size: 28px;
+}
+
+h1.announcement {
+  width: 100%;
   padding: 0.75em 0;
-  color: #F0B840;
+  margin: 0 auto;
+  background-color: #F0B840;
+  color: #fff;
+  border-bottom: 1px solid #D39211;
 }
 
 h2 {
