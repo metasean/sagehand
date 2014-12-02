@@ -237,10 +237,10 @@ h1.announcement {
   background-color: #F0B840;
   color: #fff;
     text-shadow:
-    -1px 0px 0 #D39211,
-    0px 1px 0 #D39211,
-    1px 0px 0 #D39211,
-    0px -1px 0 #D39211;
+    -1px -1px 0 #D39211,
+    1px -1px 0 #D39211,
+    -1px 1px 0 #D39211,
+    1px 1px 0 #D39211;
   border: 1px solid #D39211;
 }
 
