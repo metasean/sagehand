@@ -177,6 +177,24 @@ header ul a strong {
 section {
   padding: 15px 20px;
   font-size: 15px;
+  border-top: 1px solid #C2EAAD;
+  background: -webkit-gradient(linear, 50% 0%, 50% 700, color-stop(0%, #C2EAAD), color-stop(100%, #C2EAAD));
+  background: -webkit-linear-gradient(#C2EAAD, #C2EAAD 700px);
+  background: -moz-linear-gradient(#C2EAAD, #C2EAAD 700px);
+  background: -o-linear-gradient(#C2EAAD, #C2EAAD 700px);
+  background: -ms-linear-gradient(#C2EAAD, #C2EAAD 700px);
+  background: linear-gradient(#C2EAAD, #C2EAAD 700px);
+  -webkit-border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  -ms-border-radius: 0 0 8px 8px;
+  -o-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  position: relative;
+}
+
+div.sagehand-card {
+  padding: 15px 20px;
+  font-size: 15px;
   border-top: 1px solid #fff;
   background: -webkit-gradient(linear, 50% 0%, 50% 700, color-stop(0%, #ffffff), color-stop(100%, #ffffff));
   background: -webkit-linear-gradient(#ffffff, #ffffff 700px);
