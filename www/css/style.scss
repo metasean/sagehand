@@ -18,6 +18,10 @@ table, table tr, table td {
     border-spacing: 0;
 }
 
+.list {
+    background-color: #c2eaad;
+}
+
 
 .timeCheckbox {
     min-width: 4em;
@@ -44,14 +48,14 @@ table, table tr, table td {
 
 .act-needs .icon {
     float: left;
-    width: $act-needs-icon-width;
-    padding: 16px;
-    text-align: center;
+    padding: 5px;
+    margin: 5px;
 }
 
 .act-needs .content {
     float: left;
     // http://stackoverflow.com/questions/13274599/sass-calculate-percent-minus-px
-    width: unquote("calc(100% - 80px)");
-    padding: 16px 16px 16px 0;
+    width: unquote("calc(100% - 45px)");
+    margin-left: 10px;
+    margin-top: -16px;
 }

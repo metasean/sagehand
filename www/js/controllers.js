@@ -31,6 +31,7 @@ angular.module('sageHand.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+
 })
 
 .controller('FestivalsCtrl', function($scope) {// , $rootScope, $firebaseAuth, $window) {
@@ -47,14 +48,18 @@ angular.module('sageHand.controllers', [])
 
 })
 
-.controller('FestivalCtrl', function($scope, $rootScope, $stateParams, $ionicModal, actsRef){ //, $localStorage , $firebaseAuth, $window) {
+.controller('FestivalCtrl', function($scope, $rootScope, $stateParams, $ionicModal, actsRef){ //, actRef){ // , $localStorage , $firebaseAuth, $window) {
 
   $scope.title = "WRRMF14";
 
   //$scope.$storage = $localStorage;
 
+
+    console.log(actsRef);
   $scope.acts = actsRef.$asArray();
-  console.log($scope.acts);
+    console.log($scope.acts);
+
+
 
   /*$scope.acts = [
     {
@@ -181,15 +186,26 @@ angular.module('sageHand.controllers', [])
   ];*/
 
 
+})
+
+
+.controller('ActCtrl', function($scope, $firebase, FirebaseService, $rootScope, $stateParams, $ionicModal, actRef){ // , $localStorage , $firebaseAuth, $window) {
+
+    $scope.title = "WRRMF14";
+
+
+      $scope.act = actRef;
+      console.log("$scope.act:", $scope.act);
 
 
 
-  // create and load the  edit act in modal format
+// create and load the  edit act in modal format
   $ionicModal.fromTemplateUrl('edit-act.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
+    scope: $scope/*,
+    animation: 'slide-in-up'*/
   }).then(function(modal) {
     $scope.actModal = modal;
+    $scope.actModal.show();
   });
 
   // save act edits
@@ -201,7 +217,8 @@ angular.module('sageHand.controllers', [])
 
   // show the edit act modal
   $scope.editAct = function() {
-    $scope.actModal.show();
+    console.log("ActCtrl's editAct function");
+    $scope.actModal.show(act);
   };
 
   // close the edit act modal

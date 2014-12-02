@@ -13,6 +13,9 @@ table, table tr, table td {
   border: 0;
   border-spacing: 0; }
 
+.list {
+  background-color: #c2eaad; }
+
 .timeCheckbox {
   min-width: 4em;
   float: left; }
@@ -33,13 +36,13 @@ table, table tr, table td {
 
 .act-needs .icon {
   float: left;
-  width: 60px;
-  padding: 16px;
-  text-align: center; }
+  padding: 5px;
+  margin: 5px; }
 
 .act-needs .content {
   float: left;
-  width: calc(100% - 80px);
-  padding: 16px 16px 16px 0; }
+  width: calc(100% - 45px);
+  margin-left: 10px;
+  margin-top: -16px; }
 
 /*# sourceMappingURL=style.css.map */

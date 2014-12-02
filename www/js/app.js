@@ -118,7 +118,7 @@ angular.module('sageHand', ['ionic', 'firebase', 'ui.router', 'ngStorage', 'sage
     })
 
     .state('app.festival', {
-      url: "/festivals/:festivalId",
+      url: "/:festivalId",
       views: {
         'menuContent': {
           templateUrl: "templates/festival.html",
@@ -128,19 +128,31 @@ angular.module('sageHand', ['ionic', 'firebase', 'ui.router', 'ngStorage', 'sage
       resolve: {
         actsRef: function (FirebaseService, $stateParams) {
           return FirebaseService.getActs($stateParams.festivalId);
-        }
+        }/*,
+        actRef: function (FirebaseService, $stateParams) {
+          return FirebaseService.getAct($stateParams.festivalId, $stateParams.actId);
+        }*/
       }
     })
 
-    .state('app.act', {
-      url: "/festivals/:festivalId/acts/:actId/edit",
+    .state('app.editAct', {
+      url: "/:festivalId/:actId/edit",
       views: {
-        'menuContent' :{
+        'menuContent': {
           templateUrl: "templates/edit-act.html",
-          controller: 'FestivalCtrl'
+          controller: 'ActCtrl'
+        }
+      },
+      resolve: {
+        actsRef: function (FirebaseService, $stateParams) {
+          return FirebaseService.getActs($stateParams.festivalId);
+        },
+        actRef: function (FirebaseService, $stateParams) {
+          console.log("actRef returns FirebaseService.getAct(" + $stateParams.festivalId + " , " + $stateParams.actId + ")")
+          return FirebaseService.getAct($stateParams.festivalId, $stateParams.actId);
         }
       }
-    });
+    })
 
 
   // if none of the above states are matched, use this as the fallback
