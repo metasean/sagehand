@@ -236,11 +236,8 @@ h1.announcement {
   text-align: center;
   background-color: #F0B840;
   color: #fff;
-    text-shadow:
-    -1px -1px 0 #D39211,
-    1px -1px 0 #D39211,
-    -1px 1px 0 #D39211,
-    1px 1px 0 #D39211;
+    text-shadow: #D39211 0px 0px 1px;
+    -webkit-font-smoothing: antialiased;
   border: 1px solid #D39211;
 }
 
