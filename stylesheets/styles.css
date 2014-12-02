@@ -211,8 +211,8 @@ div.sagehand-card {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #E3CB80;
-  padding: 0.75em 0;
+  color: #5086f7;
+  padding: 0;
   margin: 0 0 20px;
   line-height: 1.2;
 }
@@ -227,6 +227,8 @@ h1, h2, h3 {
 
 h1 {
   font-size: 28px;
+  padding: 0.75em 0;
+  color: #F0B840;
 }
 
 h2 {
