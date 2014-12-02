@@ -52,11 +52,11 @@ strong {
 }
 
 header {
-  -webkit-border-radius: 8px 8px 0 0;
-  -moz-border-radius: 8px 8px 0 0;
-  -ms-border-radius: 8px 8px 0 0;
-  -o-border-radius: 8px 8px 0 0;
-  border-radius: 8px 8px 0 0;
+  -webkit-border-radius: 2px 2px 0 0;
+  -moz-border-radius: 2px 2px 0 0;
+  -ms-border-radius: 2px 2px 0 0;
+  -o-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
   background: #66cc33;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #66cc33), color-stop(100%, #66cc33));
   background: -webkit-linear-gradient(#66cc33, #66cc33);
@@ -74,7 +74,7 @@ header h1 {
   font-size: 24px;
   line-height: 1.2;
   color: #fff;
-  text-shadow: rgba(255, 255, 255, 0.9) 0 1px 0;
+  //text-shadow: rgba(255, 255, 255, 0.9) 0 1px 0;
 }
 header.without-description h1 {
   margin: 10px 0;
@@ -88,7 +88,7 @@ header p {
 header p.view {
   display: none;
   font-weight: 700;
-  text-shadow: rgba(255, 255, 255, 0.9) 0 1px 0;
+  //text-shadow: rgba(255, 255, 255, 0.9) 0 1px 0;
   -webkit-font-smoothing: antialiased;
 }
 header p.view a {
@@ -114,7 +114,7 @@ header ul {
   background: -o-linear-gradient(#77b9fb, #3782cd);
   background: -ms-linear-gradient(#77b9fb, #3782cd);
   background: linear-gradient(#77b9fb, #3782cd);
-  border-radius: 5px;
+  border-radius: 4px;
   -webkit-box-shadow: inset rgba(255, 255, 255, 0.45) 0 1px 0, inset rgba(0, 0, 0, 0.2) 0 -1px 0;
   -moz-box-shadow: inset rgba(255, 255, 255, 0.45) 0 1px 0, inset rgba(0, 0, 0, 0.2) 0 -1px 0;
   box-shadow: inset rgba(255, 255, 255, 0.45) 0 1px 0, inset rgba(0, 0, 0, 0.2) 0 -1px 0;
@@ -129,11 +129,11 @@ header ul:before {
   right: -5px;
   bottom: -6px;
   background: rgba(0, 0, 0, 0.1);
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0, inset rgba(255, 255, 255, 0.7) 0 -1px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0, inset rgba(255, 255, 255, 0.7) 0 -1px 0;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0, inset rgba(255, 255, 255, 0.7) 0 -1px 0;
@@ -177,7 +177,7 @@ header ul a strong {
 section {
   padding: 15px 20px;
   font-size: 15px;
-  border-top: 1px solid #558F00;
+  //border-top: 1px solid #558F00;
   background: -webkit-gradient(linear, 50% 0%, 50% 700, color-stop(0%, #C2EAAD), color-stop(100%, #C2EAAD));
   background: -webkit-linear-gradient(#C2EAAD, #C2EAAD 700px);
   background: -moz-linear-gradient(#C2EAAD, #C2EAAD 700px);
