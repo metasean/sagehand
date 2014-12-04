@@ -1,3 +1,8 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
 html, body {
   height: 100%;
   width: 100%;
@@ -12,6 +17,32 @@ table, table tr, table td {
   padding: 0;
   border: 0;
   border-spacing: 0; }
+
+.troubleshooting {
+  background-color: lightpink;
+  border: 1px solid yellow; }
+
+input[type="date"] {
+  min-width: 15em;
+  max-width: 15em; }
+
+input[type="time"] {
+  min-width: 10em;
+  max-width: 10em; }
+
+.edit-label {
+  width: 5em;
+  color: #2A6BD5; }
+
+.edit-time-label {
+  width: 4em;
+  color: #2A6BD5; }
+
+.edit-date-label {
+  margin-left: 4.75em; }
+
+.borderless {
+  border: 0; }
 
 .list {
   background-color: #c2eaad; }
@@ -44,5 +75,8 @@ table, table tr, table td {
   width: calc(100% - 45px);
   margin-left: 10px;
   margin-top: -16px; }
+
+.edit-needs-label {
+  margin-right: 0; }
 
 /*# sourceMappingURL=style.css.map */

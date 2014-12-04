@@ -3,52 +3,56 @@
 <ion-header-bar class="bar-secondary">
     <h1 class="title">Edit Act</h1>
     <div class="buttons">
-        <button class="button button-clear button-positive" ng-click="closeEditAct()">Cancel</button>
+        <button class="button button-clear button-positive" ng-click="hideModal()">Cancel</button>
     </div>
 </ion-header-bar>
 
 
 <!-- Modal content area -->
 <ion-content>
-    <div class="list card">
+    <div class="list card edit-act">
         <label class="item item-input">
-            <span class="input-label">
-                <input type="text" placeholder="Size" ng-model="act.size">
-            </span>
-
+            <input type="text" placeholder="Size" ng-model="act.size">
         </label>
         <label class="item item-input">
             <input type="text" placeholder="act.performer" ng-model="act.performer">
         </label>
         <label class="item item-input">
+            <textarea type="text" placeholder="act.needs" ng-model="act.needs"></textarea>
+        </label>
+        <label class="item item-input">
+            <span class="input-label edit-date-label edit-time-label">Date:</span>
+            <input type="date" ng-model="act.date" placeholder="date">
+        </label>
+        <label class="item item-input">
             <ion-checkbox ng-model="act.callTime.isDone"
-                          ng-checked="act.callTime.isDone"></ion-checkbox>
-            <span class="input-label">Call time:</span>
-            <input type="text" ng-model="act.callTime.start">
+                          ng-checked="act.callTime.isDone"
+                          class="borderless"></ion-checkbox>
+            <span class="input-label edit-time-label">Call:</span>
+            <input type="time" ng-model="act.callTime.start" class="troubleshooting">
         </label>
         <label class="item item-input">
             <ion-checkbox ng-model="act.setUp.isDone"
-                          ng-checked="act.setUp.isDone"></ion-checkbox>
-            <span class="input-label">Setup times</span>
-            <input type="text" ng-model="act.setUp.start"> -
-            <input type="text" ng-model="act.setUp.end">
+                          ng-checked="act.setUp.isDone"
+                          class="borderless"></ion-checkbox>
+            <span class="input-label edit-time-label">Setup:</span>
+            <input type="time" ng-model="act.setUp.start"> - &nbsp;&nbsp;
+            <input type="time" ng-model="act.setUp.end">
         </label>
         <label class="item item-input">
             <ion-checkbox ng-model="act.set.isDone"
-                          ng-checked="act.set.isDone"></ion-checkbox>
-            <span class="input-label">Set times</span>
-            <input type="text" ng-model="act.set.start"> -
-            <input type="text" ng-model="act.set.end">
-        </label>
-        <label class="item item-input">
-            <span class="input-label">Needs</span>
-            <input type="text" ng-model="act.needs">
+                          ng-checked="act.set.isDone"
+                          class="borderless"></ion-checkbox>
+            <span class="input-label edit-time-label">Set:</span>
+            <input type="time" ng-model="act.set.start"> - &nbsp;&nbsp;
+            <input type="time" ng-model="act.set.end">
         </label>
     </div>
     <div class="padding">
         <button type="submit"
                 class="button button-block button-balanced"
-                ng-click="modifyAct(act)">
+                ng-click="modifyAct(act)"
+                >
             Save Edits</button>
     </div>
 </ion-content>
