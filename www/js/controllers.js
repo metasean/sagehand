@@ -1,5 +1,11 @@
 angular.module('sageHand.controllers', [])
 
+/*****************************************************************************\
+| 
+|  APP controller
+|
+\*****************************************************************************/
+
 .controller('AppCtrl', function($scope, $rootScope, $firebaseAuth, $window, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
@@ -32,12 +38,13 @@ angular.module('sageHand.controllers', [])
     }, 1000);
   };
 
-
-
-
-
-
 })
+
+/*****************************************************************************\
+| 
+|  FESTIVALS controller  (mostly just to list festivals)
+|
+\*****************************************************************************/
 
 .controller('FestivalsCtrl', function($scope) {// , $rootScope, $firebaseAuth, $window) {
 
@@ -53,77 +60,81 @@ angular.module('sageHand.controllers', [])
 
 })
 
-.controller('FestivalCtrl', function($scope, $rootScope, $stateParams, $ionicModal, actsRef){ //, actRef){
+/*****************************************************************************\
+| 
+|  FESTIVAL controller  (lots of meaty stuff for a specific festival)
+|
+\*****************************************************************************/
+
+.controller('FestivalCtrl', function($scope, $rootScope, $stateParams, $ionicModal, FirebaseService, actsRef){ //, actRef){
 
   $scope.title = "WRRMF14";
 
-
-  //  console.log(actsRef);
   $scope.acts = actsRef.$asArray();
-  //  console.log($scope.acts);
+  console.log($scope.acts);
 
+/*
+  $scope.acts.$bindTo($scope, "live").then(function() {
+    console.log('$bindTo $scope.data...');
+    console.log($scope.live); // { foo: "bar" }
+//       $scope.live.foo = "baz";  // will be saved to Firebase
+//       ref.$set({foo: "baz"});   // this would update Firebase and $scope.data
+  });
+  */
 
-    // Open the login modal
-    $scope.editAct = function(act) {
-      console.log("FestivalCtrl's editAct function");
-      $scope.actCtrl.show();
-    };
+  // Time Booleans
+  $scope.callTimeClick = function(actId, isChecked) {
+    console.log(actId, isChecked);
+    var toUpdate = actId + ": {callTime: {isDone: " + !isChecked + "}}";
+    console.log(toUpdate);
+    FirebaseService.updateActs($scope.title, toUpdate);
+  }
 
-    // create and load the edit act in modal format
-    $ionicModal.fromTemplateUrl('templates/edit-act.html', {
-      scope: $scope.actsRef/*,
-       animation: 'slide-in-up'*/
-    }).then(function(modal) {
-      $scope.actCtrl = modal;
-    });
+  // Open the login modal
+  $scope.editAct = function(act) {
+    console.log("FestivalCtrl's editAct function");
+    $scope.actCtrl.show();
+  };
+
+  // create and load the edit act in modal format
+  $ionicModal.fromTemplateUrl('templates/edit-act.html', {
+    scope: $scope.actsRef,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.actCtrl = modal;
+  });
 
 })
 
 
+/*****************************************************************************\
+| 
+|  ACT controller (lots of meaty stuff for a specific festival act)
+|
+\*****************************************************************************/
+
 .controller('ActCtrl', function($scope, $firebase, FirebaseService, $rootScope, $stateParams,  actRef){
 
-    $scope.title = "WRRMF14";
+      $scope.eventKey = actRef.eventKey;
+      $scope.act = actRef.act.$asObject();
+      console.log("$scope.act: ", $scope.act);
 
-      $scope.act = actRef;
-      console.log("$scope.act:", $scope.act);
-
-    // save act edits
-    $scope.modifyAct = function() {
-      //var actId = _.findIndex($scope.acts, {'id': act.id});
-
-/*      var updatedAct = {};
-          updatedAct.id = $scope.act.$id;
-          updatedAct.id.size = $scope.act.size;
-          updatedAct.id.performer = $scope.act.performer;
-          updatedAct.id.act = $scope.act.act;
-          updatedAct.id.needs = $scope.act.needs;
-          updatedAct.id.hasPlot = $scope.act.hasPlot;
-          updatedAct.id.callTime.isDone = $scope.act.callTime.isDone;  // undefined
-          updatedAct.id.callTime.start = $scope.act.callTime.start;
-          updatedAct.id.setUp.isDone = $scope.act.setUp.isDone;
-          updatedAct.id.setUp.start = $scope.act.setUp.start;
-          updatedAct.id.setUp.end = $scope.act.setUp.end;
-          updatedAct.id.set.isDone = $scope.act.set.isDone;
-          updatedAct.id.set.start = $scope.act.set.start;
-          updatedAct.id.set.end = $scope.act.set.end;
-
-      console.log(updatedAct);*/
-
-      //actRef.set(updatedAct);
-      $scope.modal.hide();
-    };
-
+      $scope.act.$bindTo($scope, "live").then(function() {
+        console.log('$bindTo $scope.data...');
+        console.log($scope.live); // { foo: "bar" }
+//       $scope.live.foo = "baz";  // will be saved to Firebase
+//       ref.$set({foo: "baz"});   // this would update Firebase and $scope.data
+      });
 
     // close the edit act modal
     $scope.closeEditAct = function() {
       $scope.modal.hide();
     };
 
-/*    // take out the garbage
+    // take out the garbage
     $scope.$on('$destroy', function() {
       $scope.modal.remove();
-    });*/
-
+    });
 
     $scope.hideModal = function() {
       $scope.modal.hide();

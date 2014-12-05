@@ -12,49 +12,49 @@
 <ion-content>
     <div class="list card edit-act">
         <label class="item item-input">
-            <input type="text" placeholder="Size" ng-model="act.size">
+            <input type="text" placeholder="Size" ng-model="live.size">
         </label>
         <label class="item item-input">
-            <input type="text" placeholder="act.performer" ng-model="act.performer">
+            <input type="text" placeholder="act.performer" ng-model="live.performer">
         </label>
         <label class="item item-input">
-            <textarea type="text" placeholder="act.needs" ng-model="act.needs"></textarea>
+            <textarea type="text" placeholder="act.needs" ng-model="live.needs"></textarea>
         </label>
         <label class="item item-input">
             <span class="input-label edit-date-label edit-time-label">Date:</span>
-            <input type="date" ng-model="act.date" placeholder="date">
+            <input type="date" placeholder="act.date" ng-model="live.date">
         </label>
         <label class="item item-input">
-            <ion-checkbox ng-model="act.callTime.isDone"
+            <ion-checkbox ng-model="live.callTime.isDone"
                           ng-checked="act.callTime.isDone"
                           class="borderless"></ion-checkbox>
             <span class="input-label edit-time-label">Call:</span>
-            <input type="time" ng-model="act.callTime.start" class="troubleshooting">
+            <input type="time" nplaceholder="act.callTime.start" ng-model="live.callTime.start" class="troubleshooting">
         </label>
         <label class="item item-input">
-            <ion-checkbox ng-model="act.setUp.isDone"
+            <ion-checkbox ng-model="live.setUp.isDone"
                           ng-checked="act.setUp.isDone"
                           class="borderless"></ion-checkbox>
             <span class="input-label edit-time-label">Setup:</span>
-            <input type="time" ng-model="act.setUp.start"> - &nbsp;&nbsp;
-            <input type="time" ng-model="act.setUp.end">
+            <input type="time" placeholder="act.setUp.start" ng-model="live.setUp.start"> - &nbsp;&nbsp;
+            <input type="time" placeholder="act.setUp.end" ng-model="live.setUp.end">
         </label>
         <label class="item item-input">
-            <ion-checkbox ng-model="act.set.isDone"
+            <ion-checkbox ng-model="live.set.isDone"
                           ng-checked="act.set.isDone"
                           class="borderless"></ion-checkbox>
             <span class="input-label edit-time-label">Set:</span>
-            <input type="time" ng-model="act.set.start"> - &nbsp;&nbsp;
-            <input type="time" ng-model="act.set.end">
+            <input type="time" placeholder="act.set.start" ng-model="live.set.start"> - &nbsp;&nbsp;
+            <input type="time" placeholder="act.set.end" ng-model="live.set.end">
         </label>
     </div>
-    <div class="padding">
+    <!-- div class="padding">
         <button type="submit"
                 class="button button-block button-balanced"
                 ng-click="modifyAct(act)"
                 >
             Save Edits</button>
-    </div>
+    </div -->
 </ion-content>
 
 </div>

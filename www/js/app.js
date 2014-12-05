@@ -1,12 +1,12 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
 angular.module('sageHand', ['ionic', 'firebase', 'ui.router', 'ngStorage', 'sageHand.controllers'])
 
-.run(function($ionicPlatform, $rootScope, $firebase, $window) { //, $firebaseAuth, $ior) {
+/*****************************************************************************\
+| 
+|  APPLICATION RUN BLOCK (app kickstarter)
+|
+\*****************************************************************************/
+
+.run(function($ionicPlatform, $rootScope, $firebase, $window) { 
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -18,12 +18,6 @@ angular.module('sageHand', ['ionic', 'firebase', 'ui.router', 'ngStorage', 'sage
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-
-/*    $rootScope.userEmail = null;
-    $rootScope.baseUrl = 'https://stage-hand.firebaseio.com/';
-    var authRef = new Firebase($rootScope.baseUrl);
-    $rootScope.auth = $firebaseAuth(authRef);
-    */
 
     $rootScope.show = function(txt) {
       $rootScope.loading = $ionicLoading.show({
@@ -46,27 +40,14 @@ angular.module('sageHand', ['ionic', 'firebase', 'ui.router', 'ngStorage', 'sage
       }, 1999);
     };
 
-    /*
-    $rootScope.checkSession = function() {
-      var auth = new FirebaseSimpleLogin(authRef, function (error, user) {
-        if (error) {
-          // no action yet.. redirect to default route
-          $rootScope.userEmail = null;
-          $window.location.href = '#/login';
-        } else if (user) {
-          // user authenticated with Firebase
-          $rootScope.userEmail = user.email;
-          $window.location.href = ('#/festivals');
-        } else {
-          // user is logged out
-          $rootScope.userEmail = null;
-          $window.location.href = '#/login';
-        }
-      });
-    }
-    */
   });
 })
+
+/*****************************************************************************\
+| 
+|  APPLICATION CONFIGURATION
+|
+\*****************************************************************************/
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -111,8 +92,9 @@ angular.module('sageHand', ['ionic', 'firebase', 'ui.router', 'ngStorage', 'sage
         }
       },
       resolve: {
-        testRef: function() {
-          return "app.festivals state's testRef"
+        eventRef: function (FirebaseService) {
+          console.log(".state 'app.festivals' resolve:eventRef calling FirebaseService.getEvent()")
+          return FirebaseService.getEvent();
         }
       }
     })
@@ -127,11 +109,9 @@ angular.module('sageHand', ['ionic', 'firebase', 'ui.router', 'ngStorage', 'sage
       },
       resolve: {
         actsRef: function (FirebaseService, $stateParams) {
+          console.log(".state 'app.festival' resolve:actsRef calling FirebaseService.getActs(" + $stateParams.festivalId + ")")
           return FirebaseService.getActs($stateParams.festivalId);
-        }/*,
-        actRef: function (FirebaseService, $stateParams) {
-          return FirebaseService.getAct($stateParams.festivalId, $stateParams.actId);
-        }*/
+        }
       }
     })
 
@@ -145,15 +125,15 @@ angular.module('sageHand', ['ionic', 'firebase', 'ui.router', 'ngStorage', 'sage
       },
       resolve: {
         actsRef: function (FirebaseService, $stateParams) {
+          console.log(".state 'app.editAct' resolve:actsRef calling FirebaseService.getActs(" + $stateParams.festivalId + ")")
           return FirebaseService.getActs($stateParams.festivalId);
         },
         actRef: function (FirebaseService, $stateParams) {
-          console.log("actRef returns FirebaseService.getAct(" + $stateParams.festivalId + " , " + $stateParams.actId + ")")
+          console.log(".state 'app.editAct' resolve:actRef calling FirebaseService.getAct(" + $stateParams.festivalId + " , " + $stateParams.actId + ")")
           return FirebaseService.getAct($stateParams.festivalId, $stateParams.actId);
         }
       }
     })
-
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/festivals');
